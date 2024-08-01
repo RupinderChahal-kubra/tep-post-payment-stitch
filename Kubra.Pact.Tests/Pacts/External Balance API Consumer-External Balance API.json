@@ -1,0 +1,126 @@
+{
+  "consumer": {
+    "name": "External Balance API Consumer"
+  },
+  "interactions": [
+    {
+      "description": "a GET request to retrieve a balance",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "a balance for account with an id of '123456789~' exists containing all possible balance fields"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/balances/123456789~"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "amountDueAfterDueDate": 112.0,
+            "balanceForward": 12.34,
+            "billedAmount": 64.74,
+            "currentAmountDue": 45.84,
+            "currentCharges": 89.24,
+            "dueDate": "2023-08-23T22:02:10Z",
+            "lastUpdatedAtSourceDate": "2023-08-23T22:02:10Z",
+            "minimumAmountDue": 64.74
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$.amountDueAfterDueDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ]
+            },
+            "$.balanceForward": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ]
+            },
+            "$.billedAmount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ]
+            },
+            "$.currentAmountDue": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ]
+            },
+            "$.currentCharges": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ]
+            },
+            "$.dueDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^\\d{4}-\\d{1,2}-\\d{1,2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                }
+              ]
+            },
+            "$.lastUpdatedAtSourceDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^\\d{4}-\\d{1,2}-\\d{1,2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                }
+              ]
+            },
+            "$.minimumAmountDue": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ]
+            }
+          },
+          "header": {}
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pactRust": {
+      "ffi": "0.4.5",
+      "models": "1.1.2"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    }
+  },
+  "provider": {
+    "name": "External Balance API"
+  }
+}

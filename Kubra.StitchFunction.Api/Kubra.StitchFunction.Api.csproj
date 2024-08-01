@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Version>1.0</Version>
+	<Authors>MyHQ Team</Authors>
+	<Company>KUBRA</Company>
+	<Product>KUBRA Stitch Adapter(function)</Product>
+	<PackageId>Kubra.StitchFunction.Api</PackageId>
+	<NeutralLanguage>en</NeutralLanguage>
+	<Description>Kubra Stitch Adapter</Description>
+	<Copyright>Copyright</Copyright>
+	<PackageLicenseUrl>https://kubra.com/terms-of-use/</PackageLicenseUrl>
+	<PackageProjectUrl>https://github.com/iFactor/dotnet-stitchfunction-template</PackageProjectUrl>
+	<RepositoryUrl />
+	<RepositoryType>GIT</RepositoryType>
+	<PackageTags>Tags</PackageTags>
+	<PackageReleaseNotes>Release</PackageReleaseNotes>
+	<RootNamespace>Kubra.StitchFunction.Api</RootNamespace>
+	<DocumentationFile>bin\$(Configuration)\net8.0\$(Platform)\Kubra.StitchFunction.Api.xml</DocumentationFile>
+	<IsPackable>false</IsPackable>
+	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+	<StartupObject />
+	<ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Kubra.Common.Observability" Version="5.1.2" />
+	<PackageReference Include="Kubra.Common.Stitch" Version="5.1.2" />
+    <PackageReference Include="Kubra.Common.WebApi" Version="5.1.2" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.Federation" Version="8.0.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="8.0.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="8.0.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="6.0.0" />
+	<PackageReference Include="System.Security.Cryptography.Pkcs" Version="8.0.0" />
+	<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Program.cs">
+			<SonarQubeExclude>true</SonarQubeExclude>
+		</Compile>
+	</ItemGroup>
+
+
+</Project>

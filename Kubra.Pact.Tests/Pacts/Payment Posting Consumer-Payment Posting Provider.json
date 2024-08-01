@@ -1,0 +1,391 @@
+{
+  "consumer": {
+    "name": "Payment Posting Consumer"
+  },
+  "interactions": [
+    {
+      "description": "a request to make a payment posting to a client",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "messageHeader": {
+              "eventId": "e3f5ee73-2c5d-445a-b807-e2ddee94b05f",
+              "event_time": "10/23/2023 14:05:45",
+              "eventtype": "PAYMENT",
+              "kubra-clientid": "a8c2b204-1563-4a9a-9581-72f0cf71e5ef",
+              "kubra-realm": "sandbox",
+              "kubra-sourceid": "a8c2b204-1563-4a9a-9581-72f0cf71e5ef",
+              "traceparent": "9739152d42a546aaaaa84b2defeb92f6"
+            },
+            "messageKey": {
+              "account_id": "123~2022-11-28",
+              "instance_id": "d2244df9-dc16-49cb-9530-0277d308213e"
+            },
+            "messageValue": {
+              "account": {
+                "accountNumber": "123",
+                "accountType": "Residential",
+                "businessUnit": "ABC",
+                "id": "123~2022-11-28",
+                "namespaceId": "5b205c1b-6912-45c5-aa9d-dcf4e615e2e1"
+              },
+              "amount": 127.0,
+              "channel": "Web",
+              "clientId": "a8c2b204-1563-4a9a-9581-72f0cf71e5ef",
+              "donations": [
+                {
+                  "amount": 10.0,
+                  "charityCode": "SK01",
+                  "charityName": "SickKids"
+                }
+              ],
+              "effective": false,
+              "emailAddress": "test@kubra.com",
+              "eventDateTime": "2023-10-23T14:05:45+00:00",
+              "eventId": "e3f5ee73-2c5d-445a-b807-e2ddee94b05f",
+              "expectedRemitDate": "",
+              "fundingOption": "Card",
+              "fundingSourceType": "CreditCard",
+              "holderName": "Test, Test",
+              "instanceId": "d2244df9-dc16-49cb-9530-0277d308213e",
+              "maskedPaymentAccount": "*6789",
+              "message": "100",
+              "methodOfPaymentCode": "VI",
+              "originalAmount": 125.0,
+              "originalFeeAmount": 2.0,
+              "originalPaymentAmount": 115.0,
+              "originalTotalAmount": 127.0,
+              "paymentDate": "2023-10-23",
+              "paymentId": "202330600015601",
+              "phoneNumber": "",
+              "principalId": "123",
+              "principalType": "Account",
+              "product": "EZ-PAY",
+              "realm": "sandbox",
+              "status": "AUTHORIZED",
+              "transactionDate": ""
+            }
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$.messageHeader": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageKey": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.account.accountNumber": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.account.accountType": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.account.businessUnit": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.account.id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.account.namespaceId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.amount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.channel": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.clientId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.donations": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.effective": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.emailAddress": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.eventDateTime": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.eventId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.expectedRemitDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.fundingOption": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.fundingSourceType": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.holderName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.instanceId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.maskedPaymentAccount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.message": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.methodOfPaymentCode": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.originalAmount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.originalFeeAmount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.originalPaymentAmount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.originalTotalAmount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.paymentDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.paymentId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.phoneNumber": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.principalId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.principalType": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.product": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.realm": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.status": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.messageValue.transactionDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "method": "POST",
+        "path": "/"
+      },
+      "response": {
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pactRust": {
+      "ffi": "0.4.5",
+      "models": "1.1.2"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    }
+  },
+  "provider": {
+    "name": "Payment Posting Provider"
+  }
+}

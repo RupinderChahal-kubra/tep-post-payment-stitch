@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kubra.StitchFunction.Api", "Kubra.StitchFunction.Api\Kubra.StitchFunction.Api.csproj", "{5D770608-3EC3-496F-8A02-EA43B537FF2E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kubra.StitchFunction.Api.Tests", "Kubra.StitchFunction.Api.Tests\Kubra.StitchFunction.Api.Tests.csproj", "{D66FC8C2-456F-4CE3-B956-5A6B69AF9BDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44107825-6E4E-41FF-9785-F7DD470D7811}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		CHANGELOG.md = CHANGELOG.md
+		Dockerfile = Dockerfile
+		Dockerfile_local = Dockerfile_local
+		README.md = README.md
+		versions.yaml = versions.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".circleci", ".circleci", "{AD1CD0FF-0D6D-4C94-B83F-0C5197EEE4B2}"
+	ProjectSection(SolutionItems) = preProject
+		.circleci\config.yml = .circleci\config.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InitializeDev", "InitializeDev", "{F023BF5C-FBA2-445E-A210-6F14BB8610E6}"
+	ProjectSection(SolutionItems) = preProject
+		InitializeDev\InitializeDev.ps1 = InitializeDev\InitializeDev.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "helm", "helm", "{A4B34315-1BDA-4717-BD91-C079CE7AAA2A}"
+	ProjectSection(SolutionItems) = preProject
+		helm\values.dev.yaml = helm\values.dev.yaml
+		helm\values.prod.yaml = helm\values.prod.yaml
+		helm\values.qa.yaml = helm\values.qa.yaml
+		helm\values.yaml = helm\values.yaml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kubra.Pact.Tests", "Kubra.Pact.Tests\Kubra.Pact.Tests.csproj", "{9D05409C-63C2-401E-9BD0-11D1B9783CD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D770608-3EC3-496F-8A02-EA43B537FF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D770608-3EC3-496F-8A02-EA43B537FF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D770608-3EC3-496F-8A02-EA43B537FF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D770608-3EC3-496F-8A02-EA43B537FF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D66FC8C2-456F-4CE3-B956-5A6B69AF9BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66FC8C2-456F-4CE3-B956-5A6B69AF9BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66FC8C2-456F-4CE3-B956-5A6B69AF9BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66FC8C2-456F-4CE3-B956-5A6B69AF9BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D05409C-63C2-401E-9BD0-11D1B9783CD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D05409C-63C2-401E-9BD0-11D1B9783CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D05409C-63C2-401E-9BD0-11D1B9783CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D05409C-63C2-401E-9BD0-11D1B9783CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AD1CD0FF-0D6D-4C94-B83F-0C5197EEE4B2} = {44107825-6E4E-41FF-9785-F7DD470D7811}
+		{F023BF5C-FBA2-445E-A210-6F14BB8610E6} = {44107825-6E4E-41FF-9785-F7DD470D7811}
+		{A4B34315-1BDA-4717-BD91-C079CE7AAA2A} = {44107825-6E4E-41FF-9785-F7DD470D7811}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF51DCEC-896F-4EE9-9101-9AA20F0E7AEF}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+service:
+  healthEndpointLive: /actuator/health/live
+  healthEndpointReady: /actuator/health/ready
+env:
+  OPENTELEMETRY__ENABLELOGGINGCONSOLEEXPORTER: false
+  OPENTELEMETRY__ENABLETRACINGCONSOLEEXPORTER: false
+  OPENTELEMETRY__ENABLEMETRICCONSOLEEXPORTER: false
+  OPENTELEMETRY__ENABLEOTLPEXPORTER: true

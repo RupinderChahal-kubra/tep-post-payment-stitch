@@ -1,0 +1,89 @@
+version: 2.1
+
+orbs:
+  khq-app-build: kubra/khq-app-build@dev:v1
+  khq-stitch-build: kubra/khq-stitch-function@0
+
+workflows:
+  build:
+    jobs:
+      - khq-app-build/initialize:
+          name: Initialization Steps
+          context:
+            - khq-global-main-build
+          filters:
+            tags:
+              only: 
+                - /v.*/
+                - /qa.*/
+      - khq-app-build/version-set:
+          name: Set Version Number
+          executor-name: khq-app-build/default
+          context:
+            - khq-global-main-build
+          requires:
+            - Initialization Steps
+          filters:
+            tags:
+              only: 
+                - /v.*/
+                - /qa.*/
+      - khq-app-build/pact-validation-net:
+          name: Pact Contract Test
+          contract-code: balance
+          executor-name: khq-app-build/dotnet-docker8
+          context:
+            - khq-global-main-build
+          requires:
+            - Set Version Number
+          filters:
+            tags:
+              only: /v.*/
+      - khq-app-build/dotnet-build:
+          name: DotNet Build
+          executor-name: khq-app-build/dotnet-docker8
+          docker-initialize-required: true
+          remote-docker-required: true
+          sonar-scan: true
+          sonar-key: iFactor_dotnet-stitchfunction-template
+          nuget-pack-required: false
+          nuget-push-required: false
+          context:
+            - khq-global-main-build
+          requires:
+            - Set Version Number
+          filters:
+            tags:
+              only: 
+                - /v.*/
+                - /qa.*/
+      - khq-app-build/image-build:
+          name: Build ECR image
+          context:
+            - khq-global-main-build          
+          push-image: false
+          requires:
+            - DotNet Build
+      - khq-app-build/image-build:
+          name: Build and Push ECR image
+          context:
+            - khq-global-main-build          
+          push-image: true
+          requires:
+            - DotNet Build
+          filters:
+            tags:
+              only:  
+                - /v.*/
+                - /qa.*/
+            branches:
+              ignore: /.*/
+      - khq-stitch-build/values-update:
+          name: Values Update and App Deploy
+          context:
+            - khq-global-main-build
+          requires:
+            - Build and Push ECR image
+          filters:
+            tags:
+              only: /v.*/      

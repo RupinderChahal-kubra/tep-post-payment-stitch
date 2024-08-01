@@ -1,0 +1,18 @@
+﻿# https://hub.docker.com/_/microsoft-dotnet
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /source
+
+#add sources to nuget
+RUN dotnet nuget add source "https://nexus.ifactornotifi.com/repository/nuget-swift-dev/" -n "Nexus" -u "deployment" -p "Password0" --store-password-in-clear-text
+
+#copy everything else and publish app
+COPY . .
+RUN dotnet publish -c debug -o /app -p:Version=1
+
+#final stage/image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app
+ENV ASPNETCORE_ENVIRONMENT="Development"
+
+COPY --from=build /app ./
+ENTRYPOINT ["dotnet", "Kubra.StitchFunction.Api.dll"]
